@@ -1,1 +1,4 @@
-fix me hello, with git
+helloworld
+
+IDEAS
+* online-year-diary
