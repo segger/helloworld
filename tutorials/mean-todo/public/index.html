@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html ng-app="todoModule">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Todo App</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+    <style>
+        html { overflow-y:scroll; }
+        body { padding-top:50px; }
+        #todo-list { margin-bottom: 30px; }
+    </style>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+    <script src="core.js"></script>
+</head>
+<body ng-controller="todoController">
+<div class="container">
+    <div class="jumbotron text-center">
+        <h1>Mean Todos</h1>
+        <h4>Total: {{ todos.length }}</h4>
+    </div>
+
+    <div id="todo-list" class="row">
+        <div class="text-center">
+            <div class="checkbox" ng-repeat="todo in todos">
+                <label ng-click="removeTodo(todo._id)"/>
+                    {{ todo.text }}
+                  </label>
+            </div>
+        </div>
+    </div>
+
+    <div id="todo-form" class="row">
+        <div class="text-center">
+        <form>
+            <input type="text" class="input-lg text-center" ng-model="formData.text"/>
+            <button type="submit" class="btn btn-primary" ng-click="createTodo()">Add</button>
+        </form>
+    </div>
+    </div>
+</div>
+</body>
+</html>
