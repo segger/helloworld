@@ -1,1 +1,0 @@
-{"mixinTypes":["contribution"],"builders":{"configs":{},"default":"maven"},"runners":{"configs":{"system:/java/web/jboss7":{"ram":1000,"variables":{},"options":{}}},"default":"system:/java/web/jboss7"},"type":"maven","attributes":{"languageVersion":["1.6"],"language":["java"],"contribute_branch":["master"],"contribute_mode":["contribute"]}}
