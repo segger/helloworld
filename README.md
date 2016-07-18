@@ -1,7 +1,7 @@
 # helloworld
 
-* ##### [tutorials](tutorials/README.md)
-* ##### [pocs](pocs/README.md)
+* [tutorials](tutorials/)
+* [pocs](pocs/)
 
 ## IDEAS
 * online-year-diary
