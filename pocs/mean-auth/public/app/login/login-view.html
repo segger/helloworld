@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    
+  </head>
+  <body ng-app="MyApp">
+    
+    <form name="loginForm" ng-controller="LoginController" ng-submit="register(credentials)">
+      <label for="username">Username:</label>
+      <input type="text" id="username" ng-model="credentials.username"/>
+      
+      <label for="password">Password:</label>
+      <input type="password" id="password" ng-model="credentials.password"/>
+      
+      <button type="submit">Register</button>
+    </form>
+    
+  </body>
+</html>
