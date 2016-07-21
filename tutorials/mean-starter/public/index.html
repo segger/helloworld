@@ -1,0 +1,34 @@
+<!-- public/index.html -->
+<!DOCTYPE html>
+<html ng-app="MyApp">
+<head>
+    <meta charset="UTF-8">
+    <base href="/">
+    <title>mean-starter</title>
+
+    <link rel="stylesheet" href="libs/bootstrap/dist/css/boostrap.min.css"/>
+    
+    <script src="libs/angular/angular.min.js"></script>
+    <script src="libs/angular-route/angular-route.min.js"></script>
+
+    <script src="app.js"></script>
+    <script src="modules/home/home-controller.js"></script>
+    <script src="modules/nerd/nerd-controller.js"></script>
+    <script src="modules/nerd/nerd-service.js"></script>
+</head>
+<body>
+index.html
+<div class="container">
+    <nav class="navbar navbar-inverse">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">Home</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li><a href="/nerds">Nerds</a></li>
+        </ul>
+    </nav>
+
+    <div ng-view> inside ng-view</div>
+</div>
+</body>
+</html>
