@@ -1,4 +1,4 @@
-angular.module('MyApp', [])
+angular.module('MyApp')
   .factory('LoginService', function($http) {
     return {
       register: function(credentials) {

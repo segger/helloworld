@@ -1,6 +1,5 @@
 ## POCS
 #### <a name="mean-auth"></a>mean-auth
-Built on [mean-todo](../tutorials/README.md#mean-todo)
 
 Use at http://localhost:9008
 

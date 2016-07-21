@@ -1,11 +1,11 @@
 angular.module('MyApp')
-  .controller('LoginController', ['$scope', function($scope, LoginService) {
-  
+  .controller('LoginController', ['$scope', 'LoginService', function($scope, LoginService) {
+
     $scope.credentials = {
       username: '',
       password: ''
     };
-    
+
     $scope.register = function() {
       LoginService.register($scope.credentials)
         .success(function(data) {
@@ -15,7 +15,7 @@ angular.module('MyApp')
           console.log(data);
         });
     };
-    
+
     $scope.authenticate = function() {
       LoginService.authenticate($scope.credentials)
         .success(function (data) {

@@ -3,7 +3,6 @@
 // modules ===================================================
 var express = require('express');
 var app = express();
-//var router = express.Router();
 var mongoose = require('mongoose');
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
@@ -19,23 +18,20 @@ mongoose.connect(db.url);
 require('./config/passport')(passport);
 
 // application
-app.use(express.static(__dirname + '/public'));
 app.use(morgan('dev'));
-app.use(bodyParser.urlencoded({'extended':'true'}));
+app.use(bodyParser.urlencoded({ 'extended':'true'}));
 app.use(bodyParser.json());
 app.use(bodyParser.json({ type : 'application/vnd.api+json' }));
 app.use(passport.initialize());
 app.use(methodOverride('X-HTTP-Method-Override'));
 
-// routes ======================================================
+app.use(express.static(__dirname + '/public'));
 
-//app.use('/api', require('./app/routes/api')(router));
-//app.use('/auth', require('./app/routes/')(app));
-//app.use('/default', require('./app/routes/default'));
+// routes ======================================================
 require('./app/routes')(app);
 
 app.get('*', function(req, res) {
-    res.sendFile('./public/index.html');
+    res.sendfile('./public/index.html');
 });
 
 // start app ====================================================

@@ -1,22 +1,26 @@
 <!DOCTYPE html>
-<html ng-app="myIcaApp">
+<html ng-app="MyApp">
 <head>
     <meta charset="utf-8">
+    <base href="/">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>My App</title>
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="libs/bootstrap/dist/css/boostrap.min.css"/>
     <link rel="stylesheet" href="assets/css/style.css"/>
-    
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
-  
+
+    <script src="libs/angular/angular.min.js"></script>
+    <script src="libs/angular-route/angular-route.min.js"></script>
+
     <script src="app.js"></script>
-    <script src="app/login/login-service.js"></script>
-    <script src="app/login/login-controller.js"></script>
+    <script src="modules/login/login-service.js"></script>
+    <script src="modules/login/login-controller.js"></script>
 </head>
-<body ng-controller="mainController">
+<body>
 <div class="container">
-    during construction...
+    <p>index-header</p>
+    <div ng-view>
+    </div>
 </div>
 </body>
 </html>
