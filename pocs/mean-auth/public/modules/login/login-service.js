@@ -6,6 +6,9 @@ angular.module('MyApp')
       },
       authenticate: function(credentials) {
         return $http.post('/auth/authenticate', credentials);
+      },
+      access: function() {
+        return $http.get('/auth/memberinfo');
       }
     }
   });

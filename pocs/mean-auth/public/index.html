@@ -6,19 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>My App</title>
 
-    <link rel="stylesheet" href="libs/bootstrap/dist/css/boostrap.min.css"/>
+    <link rel="stylesheet" href="libs/bootswatch-dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="libs/font-awesome/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="assets/css/style.css"/>
 
-    <script src="libs/angular/angular.min.js"></script>
-    <script src="libs/angular-route/angular-route.min.js"></script>
+    <script src="libs/angular/angular.min.js" defer></script>
+    <script src="libs/angular-route/angular-route.min.js" defer></script>
 
-    <script src="app.js"></script>
-    <script src="modules/login/login-service.js"></script>
-    <script src="modules/login/login-controller.js"></script>
+    <script src="libs/jquery/dist/jquery.min.js" defer></script>
+    <script src="libs/bootswatch-dist/js/bootstrap.min.js" defer></script>
+
+    <script src="app.js" defer></script>
+    <script src="modules/login/login-service.js" defer></script>
+    <script src="modules/login/login-controller.js" defer></script>
 </head>
 <body>
 <div class="container">
-    <p>index-header</p>
+    <h1>index.html</h1>
     <div ng-view>
     </div>
 </div>
