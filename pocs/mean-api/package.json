@@ -1,0 +1,16 @@
+{
+  "name": "mean-api",
+  "main": "server.js",
+  "dependencies": {
+    "express": "~4.14.0",
+    "mongoose": "~4.5.7",
+    "body-parser": "~1.15.2",
+    "method-override": "~2.3.6"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-clean": "^0.3.2",
+    "gulp-connect": "^5.0.0",
+    "gulp-pug": "^3.0.3"
+  }
+}
