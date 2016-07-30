@@ -6,27 +6,32 @@
 
   <div class="panel-body">
         <div class="form-group">
+          <div class="row">
           <label class="col-md-4" for="username">Username:</label>
           <input class="col-md-4" type="text" id="username" ng-model="credentials.username"/>
+          </div>
         </div>
 
         <div class="form-group">
+          <div class="row">
           <label class="col-md-4" for="password">Password:</label>
           <input class="col-md-4" type="password" id="password" ng-model="credentials.password"/>
+          </div>
         </div>
   </div>
 
   <div class="panel-body">
-    <button type="button" class="btn btn-link" ng-click="register(credentials)">Register</button>
+    <button type="button" class="btn btn-link" ng-click="register()">Register</button>
     <button type="button" class="btn btn-default" ng-click="authenticate()">Authenticate</button>
-    <button type="submit" class="btn btn-primary">Try</button>
+    <button type="submit" class="btn btn-primary">Try access</button>
+    <button type="button" class="btn btn-link" ng-click="reset()">Reset</button>
   </div>
 </div>
 </form>
 
-<div class="panel panel-success" ng-class="successful ? 'panel-success' : 'panel-danger'">
-  <div class="panel-heading">{{ action.header }}</div>
+<div class="panel" ng-class="{ 'panel-success' : successful }">
+  <div class="panel-heading">Try access</div>
   <div class="panel-body">
-    {{ credentials.username }} {{ action.description }}
+    {{ message }}
   </div>
 </div>

@@ -7,14 +7,14 @@ var passport = require('passport');
 var jwt = require('jwt-simple');
 
 authRouter.post('/signup', function(req, res) {
-  if(!req.body.name || !req.body.password) {
+  if(!req.body.username || !req.body.password) {
     res.json({
       success: false,
       msg: 'Name and password needed'
     });
   } else {
     var newUser = new User({
-      name: req.body.name,
+      name: req.body.username,
       password: req.body.password
     });
 
@@ -35,7 +35,7 @@ authRouter.post('/signup', function(req, res) {
 
 authRouter.post('/authenticate', function(req, res) {
   User.findOne({
-    name: req.body.name
+    name: req.body.username
   }, function(err, user) {
     if(err) throw err;
     if(!user) {

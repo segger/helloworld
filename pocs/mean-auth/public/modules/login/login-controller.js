@@ -6,43 +6,37 @@ angular.module('MyApp')
       password: ''
     };
 
-    $scope.action = {
-      header: 'Access',
-      description: 'try to access the site'
-    };
-
-    $scope.successful = false;
-
     $scope.register = function() {
+      $scope.successful = false;
       LoginService.register($scope.credentials)
-        .success(function(data) {
-          console.log(data);
-        })
-        .error(function(err) {
-          console.log(err);
+        .then(function(data) {
+            console.log(data);
+            $scope.message = data.msg;
+            $scope.successful = data.success;
         });
     };
 
     $scope.authenticate = function() {
+      $scope.successful = false;
       LoginService.authenticate($scope.credentials)
-        .success(function (data) {
-          console.log('sucess: ' + data);
-          $scope.action.header = 'Authenticate';
-          $scope.action.description = 'is authenticated';
-          $scope.successful = true;
-        })
-        .error(function (err) {
-          console.log('error: ' + err);
+        .then(function (data) {
+          console.log(data);
+          $scope.successful = data.success;
+
         });
      };
 
      $scope.access = function(){
+       $scope.successful = false;
        LoginService.access()
-       .success(function (data) {
-         console.log('success: ' + data);
-       })
-       .error(function (err) {
-         console.log('error: ' + err);
+       .then(function (data) {
+         console.log(data);
+         $scope.successful = data.success;
+         $scope.message = data.msg;
        });
+     };
+
+     $scope.reset = function() {
+       LoginService.clearToken();
      };
 }]);
