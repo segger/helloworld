@@ -1,0 +1,14 @@
+<h2>My Turtles</h2>
+<ul class="turtles">
+  <li *ngFor="let turtle of turtles"
+    [class.selected]="turtle === selectedTurtle"
+    (click)="onSelect(turtle)">
+    <span class="badge">{{turtle.color}}</span> {{turtle.name}}
+  </li>
+</ul>
+<div *ngIf="selectedTurtle != null">
+  <h2>
+    {{selectedTurtle.name}} is my hero
+  </h2>
+  <button (click)="goToDetail()">View Details</button>
+</div>

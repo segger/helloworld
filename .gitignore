@@ -1,3 +1,9 @@
 node_modules/
 libs/
 pocs/mean-api/public/
+
+build/
+packages/
+*.lock
+.pub/
+.package

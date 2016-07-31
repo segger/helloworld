@@ -1,4 +1,4 @@
-## TUTORIALS
+## FOLLOWED TUTORIALS
 #### <a name="mean-todo"></a>mean-todo
 Prerequisits:
 * local running installation of mongodb

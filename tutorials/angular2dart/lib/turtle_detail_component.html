@@ -1,0 +1,12 @@
+<div *ngIf="turtle != null">
+  <h2>{{turtle.name}} details</h2>
+  <div>
+    <label>color</label>
+    {{turtle.color}}
+  </div>
+  <div>
+    <label>name</label>
+    <input [(ngModel)]="turtle.name" placeholder="name">
+  </div>
+  <button (click)="goBack()">Back</button>
+</div>
