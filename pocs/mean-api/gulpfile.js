@@ -2,10 +2,13 @@ var gulp = require('gulp');
 
 var clean = require('gulp-clean');
 var pug = require('gulp-pug');
+var sass = require('gulp-sass');
 var connect = require('gulp-connect');
 
 var source = 'client/';
+var src_files = source + '**/*';
 var dist = 'public/';
+var dist_files = dist + '**/*';
 
 gulp.task('clean', function() {
     return gulp.src(dist)
@@ -13,19 +16,27 @@ gulp.task('clean', function() {
 });
 
 gulp.task('copy-js', function() {
-    gulp.src([source + '**/*.js'])
+    gulp.src([src_files + '.js'])
+        .pipe(gulp.dest(dist))
+        .pipe(connect.reload());
+});
+
+gulp.task('sass', function() {
+    gulp.src([src_files + '.scss'])
+        .pipe(sass({
+        }))
         .pipe(gulp.dest(dist))
         .pipe(connect.reload());
 });
 
 gulp.task('copy-css', function() {
-    gulp.src([source + '**/*.css'])
+    gulp.src([src_files + '.css'])
         .pipe(gulp.dest(dist))
         .pipe(connect.reload());
 });
 
-gulp.task('copy-pug', function() {
-    gulp.src([source + '**/*.pug'])
+gulp.task('pug', function() {
+    gulp.src([src_files + '.pug'])
         .pipe(pug({
             pretty: true
         }))
@@ -33,11 +44,12 @@ gulp.task('copy-pug', function() {
         .pipe(connect.reload());
 });
 
-gulp.task('copy', ['copy-js','copy-css','copy-pug']);
-gulp.task('build', ['copy']);
+gulp.task('copy', ['copy-js','copy-css','pug']);
+gulp.task('build', ['sass', 'copy']);
 
 gulp.task('watch', function() {
-    gulp.watch(source + '**/*', ['build']);
+    gulp.watch(src_files + '.scss', ['sass']);
+    gulp.watch(src_files, ['copy']);
 });
 
 gulp.task('connect', function() {
