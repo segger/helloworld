@@ -1,6 +1,6 @@
 # helloworld
 
-* [followed tutorials](tutorials/)
+* [tutorials](tutorials/)
 * [pocs](pocs/)
 
 ## IDEAS

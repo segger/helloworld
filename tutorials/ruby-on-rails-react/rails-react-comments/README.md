@@ -1,24 +1,30 @@
-# README
+#### rails-react-comments
+##### environment (linux mint 17)
+```
+gpg --keyserver hkp://pool.sks-keyservers.net --recv-keys D39DC0E3
+~~gpk --keyserver hkp://keys.gnupg.net --recv-keys D39DC0E3~~
+curl -sSL https://get.rv.io | bash -s stable
+```
+restart terminal or `source ~/.bash_profile`
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+##### ruby-on-rails
 
-Things you may want to cover:
+install ruby requirements
+```
+rvm requirements
+```
 
-* Ruby version
+install eg. ruby 2.4.0 version and set as default
+```
+rvm install 2.4.0
+rvm 2.4.0 --default
+```
 
-* System dependencies
+install rails
+```
+gem install rails --pre
+```
 
-* Configuration
+##### tutorial
+https://hackhands.com/react-rails-tutorial/
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
