@@ -20,10 +20,14 @@ var Comment = React.createClass({
   render: function() {
     return (
       <div className="comment">
-        <h2 className="commentAuthor">
-          {this.props.author}
-        </h2>
+	<blockquote>
         <span dangerouslySetInnerHTML={this.rawMarkup()} />
+	<footer>
+        <p className="commentAuthor">
+          {this.props.author}
+        </p>
+	</footer>
+	</blockquote>
       </div>
     );
   }
@@ -55,7 +59,7 @@ var CommentBox = React.createClass({
       url: this.props.url,
       dataType: 'json',
       type: 'POST',
-      data: comment,
+      data: { comment: comment },
       success: function(data) {
         this.setState({data: data});
       }.bind(this),
@@ -122,28 +126,48 @@ var CommentForm = React.createClass({
   },
   render: function() {
     return (
-      <form className="commentForm" onSubmit={this.handleSubmit}>
+      <form className="commentForm form-horizontal" onSubmit={this.handleSubmit}>
+	<div className="form-group">
+	<label className="col-sm-2 control-label">Author</label>
+	<div className="col-sm-10">
         <input
           type="text"
+	  className="form-control"
           placeholder="Your name"
           value={this.state.author}
           onChange={this.handleAuthorChange}
         />
+	</div>
+	</div>
+        <div className="form-group">
+	<label className="col-sm-2 control-label">Comment</label>
+	<div className="col-sm-10">
         <input
           type="text"
+	  className="form-control"
           placeholder="Say something..."
           value={this.state.text}
           onChange={this.handleTextChange}
         />
-        <input type="submit" value="Post" />
+	</div>
+	</div>
+	<div className="form-group">
+	<div className="col-sm-offset-2 col-sm-10">
+	<button type="submit" className="btn btn-default">Submit</button>
+	</div>
+	</div>
       </form>
     );
   }
 });
 
+{/* $(document).on("page:change", function() { */}
 $(function() {
-  ReactDOM.render(
-    <CommentBox url="/comments" pollInterval={2000} />,
-    document.getElementById('content')
-  );
+  var $content = $("#content");
+  if($content.length > 0) {
+    ReactDOM.render(
+      <CommentBox url="/comments" pollInterval={2000} />,
+      document.getElementById('content')
+    );
+  }
 });
